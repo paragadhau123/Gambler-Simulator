@@ -14,11 +14,11 @@ import java.util.Random;
              r2 = r1%2;
              if(r2 == 0){
                  lostStake = lostStake-1;
-                 System.out.println("Stake after lost ="+lostStake);
+                 System.out.println("*******Gambler Loose********");
                 }
              else{
                  winStake = winStake+1;
-                 System.out.println("Stake after win ="+winStake);
+                 System.out.println("*******Gambler Win*******");
                 }
              day = day+1;
             }
