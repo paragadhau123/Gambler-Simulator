@@ -7,6 +7,10 @@ import java.util.Random;
           int stake = 100;
           int day = 1;
           int r1,r2;
+          int maxAmountWin=Integer.MIN_VALUE;
+          int maxAmountLost=Integer.MAX_VALUE;
+          int luckiestDay=0;
+          int unluckiestDay=0;
           Random r = new Random();
 
           while(day<=30){
@@ -42,7 +46,19 @@ import java.util.Random;
                 System.out.println("Day"+day+" lost by "+(lostAmount-winAmount));
                 }
 
+                 if(winAmount>maxAmountWin){
+                     maxAmountWin=winAmount;
+                     luckiestDay=day;
+                   }
+                else if(lostAmount<maxAmountLost){
+                     maxAmountLost=lostAmount;
+                     unluckiestDay=day;
+                   }
+
                 day=day+1;
               }
-            }
+               System.out.println("Luckiest Day of month is "+luckiestDay+" and won amount "+maxAmountWin);
+               System.out.println("Unluckiest Day of month is "+unluckiestDay+" and won amount "+maxAmountLost);
+
+             }
          }
