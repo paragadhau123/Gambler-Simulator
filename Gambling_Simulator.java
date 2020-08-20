@@ -4,10 +4,14 @@ import java.util.Random;
      public static void main(String [] args){
           int stake = 100;
           int day = 1;
-          int winStake = 100;
-          int lostStake = 100;
+          int winAmount;
+          int lostAmount;
           int r1,r2;
           Random r = new Random();
+          while(day<=20){
+           int winStake = 100;
+           int lostStake = 100;
+
           while(winStake<150 || lostStake>50){
              int random = r.nextInt(stake);
              r1 = random%10;
@@ -19,11 +23,10 @@ import java.util.Random;
                  winStake = winStake+1;
                 }
             }
-              if(winStake==150){
-                 System.out.println("Gambler win 50% of stake");
-               }
-             else{
-                 System.out.println("Gambler loose 50% of stake");
-                }
-             }
+               winAmount=winStake-stake;
+               lostAmount=stake-lostStake;
+               System.out.println("Win amount of day"+day+" is :"+winAmount+" and Lost amount of day"+day+" is :"+lostAmount);
+               day=day+1;
+              }
+            }
          }
