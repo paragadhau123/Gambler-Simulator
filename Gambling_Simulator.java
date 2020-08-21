@@ -2,8 +2,10 @@ import java.util.Random;
 
  public class Gambling_Simulator{
 
-     public static void main(String [] args){
-
+     public static void get30DaysReport(){
+           int winAmount=0;
+           int lostAmount=0;
+       do{
           int stake = 100;
           int day = 1;
           int r1,r2;
@@ -11,16 +13,18 @@ import java.util.Random;
           int maxAmountLost=Integer.MAX_VALUE;
           int luckiestDay=0;
           int unluckiestDay=0;
+          //int totalWin = 0;
+          //int totalLost = 0;
           Random r = new Random();
 
-          while(day<=30){
+          while( day <= 30 ){
 
            int winStake = 100;
            int lostStake = 100;
-           int winAmount;
-           int lostAmount;
+           //int winAmount;
+           //int lostAmount;
 
-          while(winStake<150 || lostStake>50){
+          while( winStake<150 || lostStake>50 ){
 
              int random = r.nextInt(stake);
              r1 = random%10;
@@ -36,29 +40,34 @@ import java.util.Random;
 
                winAmount = winStake-stake;
                lostAmount = stake-lostStake;
-
+               //totalWin = totalWin+winAmount;
+               //totalLost = totalLost+lostAmount;
                System.out.println("Win amount of day"+day+" is :"+winAmount+" and Lost amount of day"+day+" is :"+lostAmount);
 
                if( winAmount > lostAmount ){
-                System.out.println("Day"+day+" win by "+(winAmount-lostAmount));
-                }
+                  System.out.println("Day"+day+" win by "+(winAmount-lostAmount));
+                 }
              else{
-                System.out.println("Day"+day+" lost by "+(lostAmount-winAmount));
-                }
+                  System.out.println("Day"+day+" lost by "+(lostAmount-winAmount));
+                 }
 
-                 if(winAmount>maxAmountWin){
-                     maxAmountWin=winAmount;
-                     luckiestDay=day;
+                 if( winAmount > maxAmountWin ){
+                     maxAmountWin = winAmount;
+                     luckiestDay = day;
                    }
-                else if(lostAmount<maxAmountLost){
-                     maxAmountLost=lostAmount;
-                     unluckiestDay=day;
+                else if( lostAmount < maxAmountLost ){
+                     maxAmountLost = lostAmount;
+                     unluckiestDay = day;
                    }
 
-                day=day+1;
+                day = day+1;
               }
                System.out.println("Luckiest Day of month is "+luckiestDay+" and won amount "+maxAmountWin);
                System.out.println("Unluckiest Day of month is "+unluckiestDay+" and won amount "+maxAmountLost);
+              }while(winAmount>lostAmount);
+           }
 
-             }
-         }
+             public static void main(String [] args){
+                 get30DaysReport();
+              }
+          }
