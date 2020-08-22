@@ -49,6 +49,7 @@ import java.util.Random;
                lostAmount = stake-lostStake;
                //totalWin = totalWin+winAmount;
                //totalLost = totalLost+lostAmount;
+               System.out.println("-----------------------------------------------------------------------");
                System.out.println("Win amount of day"+day+" is :"+winAmount+" and Lost amount of day"+day+" is :"+lostAmount);
 
                if( winAmount > lostAmount ){
